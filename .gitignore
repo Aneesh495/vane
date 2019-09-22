@@ -1,0 +1,30 @@
+# Build artifacts
+target/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Simulation outputs
+*.vti
+*.vtk
+*.csv
+output/
+data/
+results/
+*.log
+
+# Editor and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
