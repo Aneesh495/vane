@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "crates/vane-core",
+    "crates/vane-cli"
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Aneesh <aneeshkrishnaparthasarathy@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/Aneesh495/vane"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
