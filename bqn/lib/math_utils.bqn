@@ -4,9 +4,12 @@
 
 # Basic Constants
 pi ⇐ 3.14159265358979323846
-twoPi ← 6.28318530717958647692
-halfPi ← 1.57079632679489661923
-eps ← 1e¯12
+twoPi ⇐ 6.28318530717958647692
+halfPi ⇐ 1.57079632679489661923
+eps ⇐ 1e¯12
+
+Sin ⇐ •math.Sin
+Cos ⇐ •math.Cos
 
 # Vector Norms
 NormL2 ⇐ {
