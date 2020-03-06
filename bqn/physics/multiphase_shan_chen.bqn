@@ -20,7 +20,8 @@ d2q9 ← •Import "../lbm/d2q9.bqn"
 # Default: psi0 = 1.0, rho0 = 1.0
 Psi ⇐ {
   rho ← 𝕩
-  1.0 - (⋆ (0.0 - rho))
+  safeRho ← 0.0 ⌈ (10.0 ⌊ rho)
+  1.0 - (⋆ (0.0 - safeRho))
 }
 
 # Intermolecular interaction force F_int(x)
@@ -115,10 +116,12 @@ SurfaceWettingForce ⇐ {
 EquilibriumWithForce ⇐ {
   ⟨rho, ux, uy, fxTotal, fyTotal, tau⟩ ← 𝕩
 
-  denomRho ← rho ⌈ 1e¯12
-  # Shifted velocity: u_eq = u + (tau * F) / rho
-  uxEq ← ux + ((tau × fxTotal) ÷ denomRho)
-  uyEq ← uy + ((tau × fyTotal) ÷ denomRho)
+  denomRho ← (0.01 ⌈ rho) ⌈ 1e¯12
+  # Shifted velocity: u_eq = u + (tau * F) / rho clamped to stable subsonic regime
+  uxEqRaw ← ux + ((tau × fxTotal) ÷ denomRho)
+  uyEqRaw ← uy + ((tau × fyTotal) ÷ denomRho)
+  uxEq ← ¯0.25 ⌈ (0.25 ⌊ uxEqRaw)
+  uyEq ← ¯0.25 ⌈ (0.25 ⌊ uyEqRaw)
 
   feq ← d2q9.Equilibrium ⟨rho, uxEq, uyEq⟩
   feq
