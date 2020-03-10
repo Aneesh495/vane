@@ -66,14 +66,7 @@ ThermalEquilibrium ⇐ {
 CollideThermalBGK ⇐ {
   ⟨g, geq, tauT⟩ ← 𝕩
   invTauT ← 1.0 ÷ (tauT ⌈ 1e¯12)
-
-  gPost ← {
-    gi ← 0 ⊑ 𝕩
-    geqi ← 1 ⊑ 𝕩
-    gi - (invTauT × (gi - geqi))
-  }¨ (g ≍¨ geq)
-
-  gPost
+  g - (invTauT × (g - geq))
 }
 
 # Boussinesq buoyancy force field F_buoyant = [0, rho * g_beta * (T - T0)]
