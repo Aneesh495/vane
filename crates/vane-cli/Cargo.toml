@@ -1,0 +1,15 @@
+[package]
+name = "vane-cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["Aneesh <aneeshkrishnaparthasarathy@gmail.com>"]
+description = "Command-line interface and simulation workstation for vane"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+vane-core = { path = "../vane-core" }
+clap = { version = "4.5", features = ["derive"] }
+indicatif = "0.17"
+colored = "2.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
