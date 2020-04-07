@@ -1,0 +1,14 @@
+[package]
+name = "vane-bridge"
+version = "0.1.0"
+edition = "2021"
+authors = ["Aneesh <aneeshkrishnaparthasarathy@gmail.com>"]
+description = "C ABI FFI bridge and shared library for vane"
+license = "MIT OR Apache-2.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+vane-core = { path = "../vane-core" }
+libc = "0.2"

@@ -1,7 +1,8 @@
 [workspace]
 members = [
     "crates/vane-core",
-    "crates/vane-cli"
+    "crates/vane-cli",
+    "crates/vane-bridge"
 ]
 resolver = "2"
 
