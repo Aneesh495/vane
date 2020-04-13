@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vane-cfd"
+version = "0.1.0"
+authors = [
+    { name = "Aneesh Krishna", email = "aneeshkrishnaparthasarathy@gmail.com" }
+]
+description = "High-Performance Computational Fluid Dynamics and Aerodynamics Workstation"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+vis = [
+    "matplotlib>=3.5.0",
+    "pillow>=9.0.0",
+]
