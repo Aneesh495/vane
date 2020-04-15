@@ -98,15 +98,15 @@ Trapezoid1D ⇐ {
 
 Simpson1D ⇐ {
   # Integrates array of samples y (x) with uniform spacing dx (w) via Simpson 1/3 rule
-  (≠𝕩) < 3 ? (𝕨 Trapezoid1D 𝕩) ; {
-    n ← ≠𝕩
-    idx ← ↕n
-    weights ← {
-      i ← 𝕩
-      ((i = 0) ∨ (i = n - 1)) ⊑ ⟨((1 = 2 | i) ⊑ ⟨2.0, 4.0⟩), 1.0⟩
-    }¨ idx
-    (𝕨 ÷ 3.0) × +´weights × 𝕩
+  (≠𝕩) < 3 ? 𝕨 Trapezoid1D 𝕩 ;
+  n ← ≠𝕩
+  idx ← ↕n
+  Weight ← {
+    i ← 𝕩
+    ((i = 0) ∨ (i = n - 1)) ⊑ ⟨((1 = 2 | i) ⊑ ⟨2.0, 4.0⟩), 1.0⟩
   }
+  weights ← Weight¨ idx
+  (𝕨 ÷ 3.0) × +´weights × 𝕩
 }
 
 # Polynomial Evaluation via Horner Scheme

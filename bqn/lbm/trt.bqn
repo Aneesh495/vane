@@ -39,7 +39,8 @@ TauMinusFromLambda ⇐ {
   lambdaVal ← 𝕨
   tauPlus ← 𝕩
   diff ← tauPlus - 0.5
-  (|diff| < 1e¯12) ◶ ⟨{ 0.5 + (lambdaVal ÷ diff) }, { 0.5 + (lambdaVal ÷ 1e¯6) }⟩ 𝕩
+  den ← ((|diff) < 1e¯12) ⊑ ⟨diff, 1e¯6⟩
+  0.5 + (lambdaVal ÷ den)
 }
 
 # Two-Relaxation-Time Collision Operator
